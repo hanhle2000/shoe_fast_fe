@@ -16,6 +16,7 @@ const Search = (props) => {
         setProducts([]); // Ensure we still set an empty array in case of error
       });
   }, [props.keyword]);
+
   return (
     <div>
       <div className="container-fluid padding">
@@ -34,36 +35,57 @@ const Search = (props) => {
           )}
           {products &&
             products.map((item, index) => (
-              <div className="col-md-4 mb-3" key={index}>
-                <div className="card h-100 mini-pro">
-                  <div className="d-flex justify-content-between position-absolute w-100">
+                <div className="col-md-3 mb-5" key={item.id}>
+                <div
+                  className="h-100"
+                  style={{
+                    position: "relative",
+                    borderRadius: "15px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div className="d-flex justify-content-between position-relative">
                     <div className="label-new">
-                      <span className="text-white bg-success small d-flex align-items-center px-2 py-1">
+                      <span
+                        className="badge text-white small d-flex align-items-center px-2 py-1"
+                        style={{
+                          backgroundColor: "#f94227",
+                        }}
+                      >
                         <i className="fa fa-star" aria-hidden="true"></i>
-                        <span className="ml-1">New</span>
+                        <span
+                          style={{
+                            marginLeft: "3px",
+                          }}
+                        >
+                          New
+                        </span>
                       </span>
                     </div>
                   </div>
-                  <NavLink to={`/product-detail/${item.id}`}>
+
+                  <NavLink
+                    to={`/product-detail/${item.id}`}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
                     <img
                       src={item.image}
-                      style={{ width: 150, height: 150 }}
                       alt="Product"
-                      className="mini-card"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
                     />
                   </NavLink>
-                  <div className="card-body px-2 pb-2 pt-1">
-                    <div className="d-flex justify-content-between">
-                      <div>
-                        <p className="h4 text-primary mini-card">
-                          {(
-                            (item.price * (100 - item.discount)) /
-                            100
-                          ).toLocaleString()}{" "}
-                          đ
-                        </p>
-                      </div>
-                    </div>
+
+                  <div className="card-body px-2 pb-2 pt-3">
                     <p className="text-warning d-flex align-items-center mb-2">
                       <i className="fa fa-star" aria-hidden="true"></i>
                       <i className="fa fa-star" aria-hidden="true"></i>
@@ -93,16 +115,46 @@ const Search = (props) => {
                         <p className="mb-0 small">
                           <b>Yêu thích: </b> {item.view} lượt
                         </p>
-                        <p className="mb-0 small">
-                          <b>Giá gốc: {item.price.toLocaleString()} đ</b>
-                        </p>
-                        <p className="mb-0 small text-danger">
-                          <span className="font-weight-bold">Tiết kiệm: </span>{" "}
-                          {(
-                            (item.price * item.discount) /
-                            100
-                          ).toLocaleString()}{" "}
-                          đ ({item.discount}%)
+                        <p
+                          className="mb-0 small"
+                          style={{
+                            fontSize: "15px",
+                            marginTop: "5px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontWeight: 600,
+                            }}
+                          >
+                            {(
+                              (item.price * (100 - item?.discount)) /
+                              100
+                            ).toLocaleString()}
+                            đ
+                          </span>
+                          <span
+                            style={{
+                              textDecoration: "line-through",
+                              marginLeft: "7px",
+                              color: "#CECECE",
+                              fontSize: "13px",
+                            }}
+                          >
+                            {item.price.toLocaleString()}đ
+                          </span>
+                          <span
+                            style={{
+                              border: "1px solid #F05736",
+                              borderRadius: "3px",
+                              marginLeft: "5px",
+                              color: "#F05736",
+                              padding: "1px",
+                              fontSize: "13px",
+                            }}
+                          >
+                            {item.discount}%
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -128,7 +180,12 @@ const Search = (props) => {
                           data-placement="left"
                           title="Add to Wishlist"
                         >
-                          <i className="fa fa-heart" aria-hidden="true"></i>
+                          <i
+                            className={`fa fa-heart ${
+                              item.liked ? "text-danger" : ""
+                            }`}
+                            aria-hidden="true"
+                          ></i>
                         </NavLink>
                       </div>
                     </div>

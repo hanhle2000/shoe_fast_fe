@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import "../../../component/admin/image/CardProfile.css";
-import { getBrands } from "../../../api/BrandApi";
-import { getSale } from "../../../api/SaleApi";
-import { getCategory } from "../../../api/CategoryApi";
-import { getProductById, modifyProduct } from "../../../api/ProductApi";
+import "../component/admin/image/CardProfile.css";
+import { getBrands } from "../api/BrandApi";
+import { getSale } from "../api/SaleApi";
+import { getCategory } from "../api/CategoryApi";
+import { getProductById, modifyProduct } from "../api/ProductApi";
 import { toast } from "react-toastify";
 import { useHistory, useParams } from "react-router-dom";
 

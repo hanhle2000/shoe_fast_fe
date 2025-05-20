@@ -42,7 +42,7 @@ const Footer = () => {
                 marginBottom: "32px",
               }}
             >
-              Giày BQ đồng hành cùng khách hàng công sở với chất lượng cao, trải
+              Giày ShoeFast đồng hành cùng khách hàng công sở với chất lượng cao, trải
               nghiệm tự tin trên mọi hành trình.
             </div>
             <div
@@ -240,7 +240,7 @@ const Footer = () => {
                   fontSize: "12px",
                 }}
               >
-                Tin tức Giày BQ
+                Tin tức Giày ShoeFast
               </div>
               <div
                 style={{
@@ -355,7 +355,7 @@ const Footer = () => {
       >
         <p>
           Copyright ©2025 | All rights reserved | Công ty TNHH Sản xuất - Thương
-          mại BQ
+          mại ShoeFast
         </p>
       </div>
     </div>
