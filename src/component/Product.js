@@ -185,7 +185,7 @@ const Product = (props) => {
         <div className="row">
           <div className="col-3">
             <Collapse defaultActiveKey={["1"]} accordion>
-              <Panel header="Thương hiệu" key="1">
+              <Panel header="Thương Hiệu" key="1">
                 <ul className="list-group">
                   {brands.map((item, index) => (
                     <div
